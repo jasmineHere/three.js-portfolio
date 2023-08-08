@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Navbar from './Navbar'
 
 const Section = styled.div`
   height: 100vh;
@@ -8,7 +9,9 @@ const Section = styled.div`
 
 function Hero() {
   return (
-    <Section>Hero</Section>
+    <Section>
+        <Navbar/>
+    </Section>
   )
 }
 

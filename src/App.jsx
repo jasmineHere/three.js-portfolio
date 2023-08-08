@@ -3,6 +3,7 @@ import Hero from "./components/Hero"
 import Who from "./components/Who"
 import Work from "./components/Work"
 import styled from "styled-components"
+import Navbar from "./components/Navbar"
 
 const Container = styled.div`
   height: 100vh;
