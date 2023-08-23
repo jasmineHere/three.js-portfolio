@@ -100,13 +100,13 @@ const Hero = () => {
         </Left>
         <Right>
           {/* 3d model */}
-          <Canvas camera={{ position: [0, 0, 5], fov: 40 }}>
+          <Canvas>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={1} />
             <directionalLight position={[3, 2, 1]} />
-            <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.6}> 
+            <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.5}> 
             <MeshDistortMaterial
-              color="#c5d5fc"
+              color="#acc2fa"
               attach="material"
               distort={0.3}
               speed={2}
