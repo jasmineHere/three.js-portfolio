@@ -5,11 +5,11 @@ import WebDesign from "./WebDesign";
 import ProductDesign from "./ProductDesign";
 
 const data = [
-  "Web Design",
-  "Development",
-  "Illustration",
-  "Product Design",
-  "Social Media",
+  "To-Do App",
+  "eShop",
+  "Portfolio Website",
+  "Social Feed",
+  "React Dashboard",
 ];
 
 const Section = styled.div`
@@ -89,12 +89,16 @@ function Work() {
           </List>
         </Left>
         <Right>
-          {work === "Web Design" ? (
+          {work === "To-Do App" ? (
             <WebDesign />
-          ) : work === "Development" ? (
-            <Development />
+          ) : work === "eShop" ? (
+            <WebDesign />
+          ) : work === "Portfolio Website" ? (
+            <WebDesign />
+          ) : work === "Social Media Feed" ? (
+            <WebDesign />
           ) : (
-            <ProductDesign />
+            <WebDesign />
           )}
         </Right>
       </Container>
