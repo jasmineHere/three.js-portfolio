@@ -1,5 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, {useState} from "react";
+import styled from "styled-components";
+import Development from "./Development";
+import WebDesign from "./WebDesign";
+import ProductDesign from "./ProductDesign";
 
 const data = [
   "Web Design",
@@ -20,7 +23,6 @@ const Container = styled.div`
   width: 1100px;
   display: flex;
   justify-content: space-between;
-
 `;
 
 const Left = styled.div`
@@ -60,7 +62,7 @@ const ListItem = styled.li`
       animation: moveText 0.5s linear both;
 
       @keyframes moveText {
-        to{
+        to {
           width: 100%;
         }
       }
@@ -73,20 +75,31 @@ const Right = styled.div`
 `;
 
 function Work() {
+  const [work, setWork] = useState("Web Design");
   return (
     <Section>
       <Container>
         <Left>
           <List>
             {data.map((item) => (
-              <ListItem key={item} text={item}> {item} </ListItem>
-            ))} 
+              <ListItem key={item} text={item} onClick={()=>setWork(item)}>
+                {item}
+              </ListItem>
+            ))}
           </List>
         </Left>
-        <Right></Right>
+        <Right>
+          {work === "Web Design" ? (
+            <WebDesign />
+          ) : work === "Development" ? (
+            <Development />
+          ) : (
+            <ProductDesign />
+          )}
+        </Right>
       </Container>
     </Section>
-  )
+  );
 }
 
-export default Work
+export default Work;

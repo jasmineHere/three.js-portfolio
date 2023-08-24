@@ -16,7 +16,7 @@ const Section = styled.div`
 const Container = styled.div`
   height: 100vh;
   scroll-snap-align: center;
-  width: 1100px;
+  width: 1000px;
   display: flex;
   justify-content: space-between;
 `;
@@ -88,13 +88,15 @@ const Hero = () => {
       <Navbar />
       <Container>
         <Left>
-          <Title>Think. Make. Solve</Title>
+          <Title>Design. Code. Innovate</Title>
           <WhatWeDo>
             <Line src="./img/line.png" />
-            <Subtitle>What We Do</Subtitle>
+            <Subtitle>What I Do</Subtitle>
           </WhatWeDo>
           <Desc>
-            we enjoy creating delightful, human-centered digital experiences.
+            I craft intuitive and dynamic web experiences using cutting-edge
+            React technologies, transforming ideas into interactive digital
+            realities.
           </Desc>
           <Button>Learn More</Button>
         </Left>
@@ -104,12 +106,12 @@ const Hero = () => {
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={1} />
             <directionalLight position={[3, 2, 1]} />
-            <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.5}> 
-            <MeshDistortMaterial
-              color="#acc2fa"
-              attach="material"
-              distort={0.3}
-              speed={2}
+            <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.5}>
+              <MeshDistortMaterial
+                color="#c5d5fc"
+                attach="material"
+                distort={0.3}
+                speed={2}
               />
             </Sphere>
           </Canvas>
