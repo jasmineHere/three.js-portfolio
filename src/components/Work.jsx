@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Development from "./Development";
-import WebDesign from "./WebDesign";
-import ProductDesign from "./ProductDesign";
+
+const defaultdescription =
+  "Click on any option from the left to see more details.";
 
 const data = [
   {
@@ -27,7 +27,7 @@ const data = [
     name: "Social Feed",
     image: "./path_to_image_eshop.jpg",
     description:
-      "•	Developed a dynamic social media feed application showcasing posts from various users in real-time using React. Implemented advanced features like infinite scrolling to enhance the user experience and handled interactions such as liking and commenting on posts efficiently. Demonstrated a strong understanding of data handling and user interaction in a dynamic environment.",
+      "Developed a dynamic social media feed application showcasing posts from various users in real-time using React. Implemented advanced features like infinite scrolling to enhance the user experience and handled interactions such as liking and commenting on posts efficiently. Demonstrated a strong understanding of data handling and user interaction in a dynamic environment.",
   },
   {
     name: "Dashboard",
@@ -123,59 +123,57 @@ const Image = styled.img`
 `;
 
 const Description = styled.p`
-  font-size: 18px;
+  font-size: 20px;
   color: gray;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   max-width: 100%; // adjust this to limit the width of the description
 `;
 
 function Work() {
-  const [work, setWork] = useState("Web Design");
+  const [work, setWork] = useState("");
   const currentWork = data.find((item) => item.name === work);
   return (
-    <Section>
-      <Container>
-        <Left>
-          <List>
-            {data.map((item) => (
-              <ListItem
-                key={item.name}
-                text={item.name}
-                onClick={() => setWork(item.name)}
-              >
-                {item.name}
-              </ListItem>
-            ))}
-            {/* {data.map((item) => (
+    <div id="work">
+      <Section>
+        <Container>
+          <Left>
+            <List>
+              {data.map((item, index) => (
+                <ListItem
+                  key={index + "-" + (item.name || "default")}
+                  text={item.name}
+                  onClick={() => setWork(item.name)}
+                >
+                  {item.name}
+                </ListItem>
+              ))}
+              {/* {data.map((item) => (
               <ListItem key={item} text={item} onClick={() => setWork(item)}>
                 {item}
               </ListItem>
             ))} */}
-          </List>
-        </Left>
-        <Right>
-          {currentWork && (
-            <Box>
-              <Image src={currentWork.image} alt={currentWork.name} />
-              <Description>{currentWork.description}</Description>
-            </Box>
-          )}
-          {/* {work === "To-Do App" ? (
-            <WebDesign />
-          ) : work === "eShop" ? (
-            <WebDesign />
-          ) : work === "Portfolio Website" ? (
-            <WebDesign />
-          ) : work === "Social Media Feed" ? (
-            <WebDesign />
-          ) : (
-            <WebDesign />
-          )} */}
-        </Right>
-      </Container>
-    </Section>
+            </List>
+          </Left>
+          <Right>
+            {currentWork ? (
+              <Box>
+                <Image
+                  src={currentWork.image}
+                  alt={currentWork.name || "Default"}
+                />
+                <Description>{currentWork.description}</Description>
+              </Box>
+            ) : (
+              <Box>
+                <Description>{defaultdescription}</Description>
+              </Box>
+            )}
+          </Right>
+        </Container>
+      </Section>
+    </div>
   );
 }
 

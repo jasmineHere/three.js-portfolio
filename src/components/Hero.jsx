@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Navbar from "./Navbar";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
+import { Link as ScrollLink } from "react-scroll";
 
 const Section = styled.div`
   height: 100vh;
@@ -78,47 +79,57 @@ const Img = styled.img`
     
     @keyframes animate {
         to{
-            transform: translateY(30px);
+            transform: translateY(25px);
         }
 `;
 
 const Hero = () => {
   return (
-    <Section>
-      <Navbar />
-      <Container>
-        <Left>
-          <Title>Design. Code. Innovate</Title>
-          <WhatWeDo>
-            <Line src="./img/line.png" />
-            <Subtitle>What I Do</Subtitle>
-          </WhatWeDo>
-          <Desc>
-            I craft intuitive and dynamic web experiences using cutting-edge
-            React technologies, transforming ideas into interactive digital
-            realities.
-          </Desc>
-          <Button>Learn More</Button>
-        </Left>
-        <Right>
-          {/* 3d model */}
-          <Canvas>
-            <OrbitControls enableZoom={false} />
-            <ambientLight intensity={1} />
-            <directionalLight position={[3, 2, 1]} />
-            <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.5}>
-              <MeshDistortMaterial
-                color="#c5d5fc"
-                attach="material"
-                distort={0.3}
-                speed={2}
-              />
-            </Sphere>
-          </Canvas>
-          <Img src="./img/moon.png" />
-        </Right>
-      </Container>
-    </Section>
+    <div id="hero">
+      <Section>
+        <Navbar />
+        <Container>
+          <Left>
+            <Title>Design. Code. Innovate</Title>
+            <WhatWeDo>
+              <Line src="./img/line.png" />
+              <Subtitle>What I Do</Subtitle>
+            </WhatWeDo>
+            <Desc>
+              I craft intuitive and dynamic web experiences using cutting-edge
+              React technologies, transforming ideas into interactive digital
+              realities.
+            </Desc>
+            <ScrollLink
+              to="about" // ID of the "Who" section
+              smooth={true} // Smooth scrolling
+              duration={500} // Duration of scroll in milliseconds
+              offset={-50} // Offset in pixels for precise placement (optional, adjust as necessary)
+            >
+              <Button>Learn More</Button>
+            </ScrollLink>
+            {/* <Button>Learn More</Button> */}
+          </Left>
+          <Right>
+            {/* 3d model */}
+            <Canvas>
+              <OrbitControls enableZoom={false} />
+              <ambientLight intensity={1} />
+              <directionalLight position={[3, 2, 1]} />
+              <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.4}>
+                <MeshDistortMaterial
+                  color="#c5d5fc"
+                  attach="material"
+                  distort={0.25}
+                  speed={2}
+                />
+              </Sphere>
+            </Canvas>
+            <Img src="./img/moon.png" />
+          </Right>
+        </Container>
+      </Section>
+    </div>
   );
 };
 

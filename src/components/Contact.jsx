@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import styled from 'styled-components'
-import Map from './Map'
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import styled from "styled-components";
+import Map from "./Map";
 
 const Section = styled.div`
   height: 100vh;
@@ -39,7 +39,6 @@ const Input = styled.input`
   background-color: #e8e6e6;
   border: none;
   border-radius: 5px;
-
 `;
 
 const TextArea = styled.textarea`
@@ -63,51 +62,57 @@ const Right = styled.div`
   flex: 1;
 `;
 
-
 function Contact() {
-  const ref = useRef()
+  const ref = useRef();
   const [success, setSuccess] = useState(null);
 
   const handleSubmit = (e) => {
-    e.preventDefault()  
+    e.preventDefault();
 
     emailjs
       .sendForm(
-        'service_wo8s0hg', 
-        'template_1wkbqj8', 
-        ref.current, 
-        'HCPZGcDmgyNahNDhi'
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            setSuccess(true);
-        }, 
-          (error) => {
-            console.log(error.text);
-            setSuccess(false);
+        "service_wo8s0hg",
+        "template_1wkbqj8",
+        ref.current,
+        "HCPZGcDmgyNahNDhi"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSuccess(true);
+        },
+        (error) => {
+          console.log(error.text);
+          setSuccess(false);
         }
       );
   };
   return (
-    <Section>
-      <Container>
-        <Left>
-          <Form ref = {ref} onSubmit={handleSubmit}>
-            <Title>Contact Me</Title>
-            <Input placeholder="Name" name="name"/>
-            <Input placeholder="Email" name="email"/>
-            <TextArea placeholder="Write your message" name="message" rows={10}/>
-            <Button type = "submit">Send</Button>
-            {success && "Your message has been sent. We'll get back to you soon :)"}
-          </Form>
-        </Left>
-        <Right>
-          <Map/>
-        </Right>
-      </Container>
-    </Section>
-  )
+    <div id="contact">
+      <Section>
+        <Container>
+          <Left>
+            <Form ref={ref} onSubmit={handleSubmit}>
+              <Title>Contact Me</Title>
+              <Input placeholder="Name" name="name" />
+              <Input placeholder="Email" name="email" />
+              <TextArea
+                placeholder="Write your message"
+                name="message"
+                rows={10}
+              />
+              <Button type="submit">Send</Button>
+              {success &&
+                "Your message has been sent. We'll get back to you soon :)"}
+            </Form>
+          </Left>
+          <Right>
+            <Map />
+          </Right>
+        </Container>
+      </Section>
+    </div>
+  );
 }
 
-export default Contact
+export default Contact;
