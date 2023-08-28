@@ -14,11 +14,6 @@ const Container = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  // background: url("./img/bg.jpeg");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover; // To ensure it covers the entire viewport
-  // background-attachment: fixed; // This makes sure the background stays fixed on scrolling
 `;
 
 function App() {

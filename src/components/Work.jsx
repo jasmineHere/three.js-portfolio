@@ -48,12 +48,22 @@ const Container = styled.div`
   width: 1100px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+  }
 `;
 
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    padding: 20px;
+    justify-content: center;
+  }
 `;
 
 const List = styled.ul`
@@ -70,6 +80,12 @@ const ListItem = styled.li`
   color: transparent;
   -webkit-text-stroke: 1px white;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 30px;
+    color: white;
+    -webkit-text-stroke: 0px;
+  }
 
   &:after {
     content: "${(props) => props.text}";
@@ -98,21 +114,20 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   display: flex;
-  align-items: center; // vertically center content
-  justify-content: center; // horizontally center content
+  align-items: center; 
+  justify-content: center; 
 `;
 
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 80%; // adjust this to limit the width of the box
+  max-width: 80%; 
   align-items: center;
-  justify-content: center; // vertically center content in the box
+  justify-content: center;
   border: 2px solid white;
-  transition: box-shadow 0.3s ease; // smooth transition for hover shadow effect
-
+  transition: box-shadow 0.3s ease; 
   &:hover {
-    box-shadow: 0px 0px 15px #dc9dcd; // Add shadow effect on hover
+    box-shadow: 0px 0px 15px #dc9dcd;
   }
 `;
 
@@ -128,7 +143,15 @@ const Description = styled.p`
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   padding: 20px 20px 20px 20px;
-  max-width: 100%; // adjust this to limit the width of the description
+  max-width: 100%; 
+
+  @media only screen and (max-width: 768px) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 `;
 
 function Work() {
@@ -149,11 +172,6 @@ function Work() {
                   {item.name}
                 </ListItem>
               ))}
-              {/* {data.map((item) => (
-              <ListItem key={item} text={item} onClick={() => setWork(item)}>
-                {item}
-              </ListItem>
-            ))} */}
             </List>
           </Left>
           <Right>

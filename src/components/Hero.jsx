@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import { Canvas } from "@react-three/fiber";
@@ -12,14 +12,25 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    height: 200vh;
+  }
 `;
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   scroll-snap-align: center;
   width: 1000px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Left = styled.div`
@@ -28,9 +39,18 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+
+  @media only screen and (max-width: 768px) {
+    flex: 1;
+    align-items: center;
+  }
 `;
 const Title = styled.h1`
   font-size: 74px;
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 const WhatWeDo = styled.div`
   display: flex;
@@ -46,6 +66,11 @@ const Subtitle = styled.h2`
 const Desc = styled.p`
   font-size: 24px;
   color: lightgray;
+
+  @media only screen and (max-width: 768px) {
+    padding: 20px;
+    text-align: center;
+  }
 `;
 const Button = styled.button`
   background-color: #da4ea2;
@@ -61,22 +86,38 @@ const Button = styled.button`
 const Right = styled.div`
   flex: 3;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    flex: 1;
+    width: 100%;
+  }
 `;
+
+const styledCanvas = styled(Canvas)`
+  @media only screen and (max-width: 768px) {
+    // adjust dimensions as needed for smaller screens
+    width: 80%;
+    height: 50%;
+  }
+`;
+
 const Img = styled.img`
     width: 600px;
     height: 600px;
     object-fit: contain;
     position: absolute;
-    // center the image vertically
     top: 0;
     bottom: 0;
-    // center the image horizontally
     left: 0;
     right: 0;
     margin: auto;
-    //adding animation (time, type, ease(how will it move), animation should delay, stop or repeat)
     animation: animate 2s infinite ease alternate;
     
+    @media only screen and (max-width: 768px) {
+      width: 300px;
+      height: 300px;
+    }
+
     @keyframes animate {
         to{
             transform: translateY(25px);
@@ -84,6 +125,25 @@ const Img = styled.img`
 `;
 
 const Hero = () => {
+  const [sphereScale, setSphereScale] = useState(2.4); 
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth <= 768) { // for mobile devices
+        setSphereScale(1.5); 
+      } else {
+        setSphereScale(2.4);  // default scale
+      }
+    }
+    handleResize();
+
+    // Listen for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div id="hero">
       <Section>
@@ -100,23 +160,16 @@ const Hero = () => {
               React technologies, transforming ideas into interactive digital
               realities.
             </Desc>
-            <ScrollLink
-              to="about" // ID of the "Who" section
-              smooth={true} // Smooth scrolling
-              duration={500} // Duration of scroll in milliseconds
-              offset={-50} // Offset in pixels for precise placement (optional, adjust as necessary)
-            >
+            <ScrollLink to="about" smooth={true} duration={500} offset={-50}>
               <Button>Learn More</Button>
             </ScrollLink>
-            {/* <Button>Learn More</Button> */}
           </Left>
           <Right>
-            {/* 3d model */}
             <Canvas>
               <OrbitControls enableZoom={false} />
               <ambientLight intensity={1} />
               <directionalLight position={[3, 2, 1]} />
-              <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={2.4}>
+              <Sphere args={[1, 100, 100]} position={[0, 0, 0]} scale={sphereScale}>
                 <MeshDistortMaterial
                   color="#c5d5fc"
                   attach="material"
