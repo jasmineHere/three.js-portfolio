@@ -51,6 +51,9 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Icons = styled.div`
