@@ -99,7 +99,7 @@ const Navbar = () => {
           </List>
         </Links>
         <Icons>
-          <a href="./././public/CV.pdf" download="CV.pdf">
+          <a href="/CV.pdf" download="CV.pdf">
             <Button>Resume</Button>
           </a>
         </Icons>
