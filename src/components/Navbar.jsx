@@ -11,6 +11,7 @@ const Section = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    margin-bottom: 70px;
   }  
 `;
 
@@ -85,16 +86,16 @@ const Navbar = () => {
           <h3>Jasmine Muman</h3>
           <List>
             <ListItem>
-              <ScrollLink to="hero" smooth={true}> Home </ScrollLink>
+              <ScrollLink to="hero" smooth={true} duration={100} > Home </ScrollLink>
             </ListItem>
             <ListItem>
-              <ScrollLink to="about" smooth={true}> About </ScrollLink>
+              <ScrollLink to="about" smooth={true} duration={100} offset={-50} > About </ScrollLink>
             </ListItem>
             <ListItem>
-              <ScrollLink to="work" smooth={true}> Work </ScrollLink>
+              <ScrollLink to="work" smooth={true} duration={100} > Work </ScrollLink>
             </ListItem>
             <ListItem>
-              <ScrollLink to="contact" smooth={true}> Contact Me</ScrollLink>
+              <ScrollLink to="contact" smooth={true} duration={100} > Contact Me</ScrollLink>
             </ListItem>
           </List>
         </Links>

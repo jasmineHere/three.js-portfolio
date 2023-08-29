@@ -114,18 +114,19 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   display: flex;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 `;
 
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 80%; 
+  max-width: 80%;
   align-items: center;
   justify-content: center;
   border: 2px solid white;
-  transition: box-shadow 0.3s ease; 
+  background-color: black;
+  transition: box-shadow 0.3s ease;
   &:hover {
     box-shadow: 0px 0px 15px #dc9dcd;
   }
@@ -139,11 +140,11 @@ const Image = styled.img`
 
 const Description = styled.p`
   font-size: 20px;
-  color: gray;
+  color: white;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   padding: 20px 20px 20px 20px;
-  max-width: 100%; 
+  max-width: 100%;
 
   @media only screen and (max-width: 768px) {
     top: 0;
@@ -158,40 +159,38 @@ function Work() {
   const [work, setWork] = useState("");
   const currentWork = data.find((item) => item.name === work);
   return (
-    <div id="work">
-      <Section>
-        <Container>
-          <Left>
-            <List>
-              {data.map((item, index) => (
-                <ListItem
-                  key={index + "-" + (item.name || "default")}
-                  text={item.name}
-                  onClick={() => setWork(item.name)}
-                >
-                  {item.name}
-                </ListItem>
-              ))}
-            </List>
-          </Left>
-          <Right>
-            {currentWork ? (
-              <Box>
-                <Image
-                  src={currentWork.image}
-                  alt={currentWork.name || "Default"}
-                />
-                <Description>{currentWork.description}</Description>
-              </Box>
-            ) : (
-              <Box>
-                <Description>{defaultdescription}</Description>
-              </Box>
-            )}
-          </Right>
-        </Container>
-      </Section>
-    </div>
+    <Section id="work">
+      <Container>
+        <Left>
+          <List>
+            {data.map((item, index) => (
+              <ListItem
+                key={index + "-" + (item.name || "default")}
+                text={item.name}
+                onClick={() => setWork(item.name)}
+              >
+                {item.name}
+              </ListItem>
+            ))}
+          </List>
+        </Left>
+        <Right>
+          {currentWork ? (
+            <Box>
+              <Image
+                src={currentWork.image}
+                alt={currentWork.name || "Default"}
+              />
+              <Description>{currentWork.description}</Description>
+            </Box>
+          ) : (
+            <Box>
+              <Description>{defaultdescription}</Description>
+            </Box>
+          )}
+        </Right>
+      </Container>
+    </Section>
   );
 }
 

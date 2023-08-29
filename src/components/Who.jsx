@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -113,8 +112,7 @@ const IconLink = styled.a`
 
 const Who = () => {
   return (
-    <div id="about">
-      <Section>
+      <Section id="about">
         <Container>
           <Left>
             {/* 3D model */}
@@ -162,15 +160,13 @@ const Who = () => {
             <ScrollLink
               to="work" 
               smooth={true} 
-              duration={500} 
-              offset={-50} 
+              duration={100} 
             >
               <Button>See my works</Button>
             </ScrollLink> 
           </Right>
         </Container>
       </Section>
-    </div>
   );
 };
 

@@ -145,8 +145,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div id="hero">
-      <Section>
+      <Section id="hero">
         <Navbar />
         <Container>
           <Left>
@@ -182,7 +181,6 @@ const Hero = () => {
           </Right>
         </Container>
       </Section>
-    </div>
   );
 };
 
