@@ -162,7 +162,7 @@ const Who = () => {
               smooth={true} 
               duration={100} 
             >
-              <Button>See my works</Button>
+              <Button>See my work</Button>
             </ScrollLink> 
           </Right>
         </Container>

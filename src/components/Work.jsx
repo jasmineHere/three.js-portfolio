@@ -7,13 +7,13 @@ const defaultdescription =
 const data = [
   {
     name: "To-Do App",
-    image: "./path_to_image_todoapp.jpg",
+    // image: "./path_to_image_todoapp.jpg",
     description:
       "A simple To-Do application built using React allowing users to efficiently manage tasks by adding, editing, and deleting them.Implemented task completion functionality to track completed tasks and utilized state management for efficient data handling.Incorporated sorting and filtering features to organize tasks effectively, showcasing a deep understanding of React component structure.",
   },
   {
     name: "eShop",
-    image: "./path_to_image_eshop.jpg",
+    // image: "./path_to_image_eshop.jpg",
     description:
       "An e-commerce platform built for modern businesses enabling users to browse and view a wide range of products.implemented advanced features such as product filtering and sorting to provide a seamless shopping experience for users, Developed a cart functionality to manage complex state and handle user interactions during the shopping process.",
   },
@@ -25,13 +25,13 @@ const data = [
   },
   {
     name: "Social Feed",
-    image: "./path_to_image_eshop.jpg",
+    // image: "./path_to_image_eshop.jpg",
     description:
       "Developed a dynamic social media feed application showcasing posts from various users in real-time using React. Implemented advanced features like infinite scrolling to enhance the user experience and handled interactions such as liking and commenting on posts efficiently. Demonstrated a strong understanding of data handling and user interaction in a dynamic environment.",
   },
   {
     name: "Dashboard",
-    image: "./path_to_image_eshop.jpg",
+    // image: "./path_to_image_eshop.jpg",
     description:
       "Designed and developed an intuitive admin dashboard using React, enabling real-time data visualization, streamlined content management, and seamless user administration. The responsive interface boasts modular components, ensuring optimal performance and a user-friendly experience.",
   },
@@ -179,7 +179,7 @@ function Work() {
             <Box>
               <Image
                 src={currentWork.image}
-                alt={currentWork.name || "Default"}
+                //alt={currentWork.name || "Default"}
               />
               <Description>{currentWork.description}</Description>
             </Box>
