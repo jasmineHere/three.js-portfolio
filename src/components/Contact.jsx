@@ -78,6 +78,10 @@ function Contact() {
   const ref = useRef();
   const [success, setSuccess] = useState(null);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -92,6 +96,9 @@ function Contact() {
         (result) => {
           console.log(result.text);
           setSuccess(true);
+          setName('');
+          setEmail('');
+          setMessage('');
         },
         (error) => {
           console.log(error.text);
@@ -105,12 +112,24 @@ function Contact() {
         <Left>
           <Form ref={ref} onSubmit={handleSubmit}>
             <Title>Contact Me</Title>
-            <Input placeholder="Name" name="name" />
-            <Input placeholder="Email" name="email" />
+            <Input
+              placeholder="Name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              placeholder="Email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <TextArea
               placeholder="Write your message"
               name="message"
               rows={10}
+              value={message}
+              onChange={e => setMessage(e.target.value)}
             />
             <Button type="submit">Send</Button>
             {success &&

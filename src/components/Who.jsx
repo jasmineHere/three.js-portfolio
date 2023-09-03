@@ -141,13 +141,13 @@ const Who = () => {
               >
                 <Icon icon={faLinkedin} />
               </IconLink>
-              <IconLink
+              {/* <IconLink
                 href="https://instagram.com/jasminemuman?igshid=MjEwN2IyYWYwYw=="
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Icon icon={faInstagram} />
-              </IconLink>
+              </IconLink> */}
 
               <IconLink
                 href="https://github.com/jasmineHere"
