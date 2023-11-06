@@ -7,7 +7,7 @@ const defaultdescription =
 const data = [
   {
     name: "To-Do App",
-    // image: "./path_to_image_todoapp.jpg",
+    image: "img/ToDoProject.png",
     description:
       "A simple To-Do application built using React allowing users to efficiently manage tasks by adding, editing, and deleting them.Implemented task completion functionality to track completed tasks and utilized state management for efficient data handling.Incorporated sorting and filtering features to organize tasks effectively, showcasing a deep understanding of React component structure.",
   },
