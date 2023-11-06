@@ -19,7 +19,7 @@ const data = [
   },
   {
     name: "Portfolio",
-    image: "./././public/img/Work.png",
+    image: "img/Work.png",
     description:
       "Crafted a personal portfolio website using React.js and integrated the Three.js library to create engaging 3D visual elements, showcasing professional skills, projects, and experience. Demonstrated proficiency in designing an aesthetically pleasing and responsive user interface. Emphasized the ability to organize, structure components effectively, and implement 3D interactivity seamlessly",
   },
