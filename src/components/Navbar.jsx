@@ -7,12 +7,12 @@ const Section = styled.div`
   justify-content: center;
   position: fixed;
   background: rgba(50, 50, 57, 0.8);
-  width: 100%; 
+  width: 100%;
 
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin-bottom: 70px;
-  }  
+  }
 `;
 
 const Container = styled.div`
@@ -26,7 +26,7 @@ const Container = styled.div`
   @media only screen and (max-width: 768px) {
     width: 100%;
     padding: 10px 20px;
-  } 
+  }
 `;
 
 const Links = styled.div`
@@ -34,9 +34,9 @@ const Links = styled.div`
   align-items: center;
   gap: 50px;
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
   &:hover {
-    text-decoration: none; 
+    text-decoration: none;
   }
 `;
 
@@ -47,7 +47,7 @@ const List = styled.ul`
 
   @media only screen and (max-width: 768px) {
     display: none;
-  } 
+  }
 `;
 
 const ListItem = styled.li`
@@ -78,7 +78,15 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const ResumeLink = styled.a`
+  cursor: pointer;
+`;
+
 const Navbar = () => {
+  const openResumeInNewTab = () => {
+    const resumeUrl = "/Resume.pdf";
+    window.open(resumeUrl, "_blank");
+  };
   return (
     <Section>
       <Container>
@@ -86,23 +94,35 @@ const Navbar = () => {
           <h3>Jasmine Muman</h3>
           <List>
             <ListItem>
-              <ScrollLink to="hero" smooth={true} duration={100} > Home </ScrollLink>
+              <ScrollLink to="hero" smooth={true} duration={100}>
+                {" "}
+                Home{" "}
+              </ScrollLink>
             </ListItem>
             <ListItem>
-              <ScrollLink to="about" smooth={true} duration={100} offset={-50} > About </ScrollLink>
+              <ScrollLink to="about" smooth={true} duration={100} offset={-50}>
+                {" "}
+                About{" "}
+              </ScrollLink>
             </ListItem>
             <ListItem>
-              <ScrollLink to="work" smooth={true} duration={100} > Work </ScrollLink>
+              <ScrollLink to="work" smooth={true} duration={100}>
+                {" "}
+                Work{" "}
+              </ScrollLink>
             </ListItem>
             <ListItem>
-              <ScrollLink to="contact" smooth={true} duration={100} > Contact Me</ScrollLink>
+              <ScrollLink to="contact" smooth={true} duration={100}>
+                {" "}
+                Contact Me
+              </ScrollLink>
             </ListItem>
           </List>
         </Links>
         <Icons>
-          <a href="/Resume.docx" download="Resume.docx">
+          <ResumeLink onClick={openResumeInNewTab}>
             <Button>Resume</Button>
-          </a>
+          </ResumeLink>
         </Icons>
       </Container>
     </Section>
