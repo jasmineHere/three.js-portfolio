@@ -113,19 +113,19 @@ function Contact() {
           <Form ref={ref} onSubmit={handleSubmit}>
             <Title>Contact Me</Title>
             <Input
-              placeholder="Name"
+              placeholder="What's your name?"
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             <Input
-              placeholder="Email"
+              placeholder="What's your @email?"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <TextArea
-              placeholder="Write your message"
+              placeholder="What do you have to tell me/offer me?"
               name="message"
               rows={10}
               value={message}
