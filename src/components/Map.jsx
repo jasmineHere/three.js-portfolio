@@ -42,7 +42,7 @@ const Map= () => {
         }}
       >
         <text x="-8" textAnchor="end" alignmentBaseline="middle" fill="white">
-          {"Kitchener"}
+          {"Toronto"}
         </text>
       </Annotation>
       <Marker coordinates={[-79.3832, 43.6532]}>
